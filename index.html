@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel d'Utilisation - Desmarais & Gagné AI</title>
+    <title>Manuel d'Utilisation Détaillé - Desmarais & Gagné AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,6 +11,8 @@
         :root {
             --primary-color: #00A971;
             --primary-color-darker: #00673D;
+            --primary-color-light: #e6f7f1; /* Vert très pâle pour fonds discrets */
+            --primary-color-medium: #a5e9d0; /* Vert moyen pour accents */
             --background-color: #F9FAFB;
             --secondary-background-color: #FFFFFF;
             --text-color: #374151;
@@ -32,9 +34,9 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px; /* Légèrement plus large pour plus de contenu */
             margin: 40px auto;
-            padding: 20px 30px;
+            padding: 25px 35px;
             background-color: var(--secondary-background-color);
             border-radius: var(--border-radius-md);
             box-shadow: var(--box-shadow-md);
@@ -42,100 +44,143 @@
 
         header {
             text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+            border-bottom: 3px solid var(--primary-color);
         }
 
         header h1 {
             color: var(--primary-color-darker);
-            font-size: 2.5em;
-            margin-bottom: 0.2em;
+            font-size: 2.8em; /* Plus grand */
+            margin-bottom: 0.3em;
+            font-weight: 700;
         }
 
         header p {
             color: var(--text-color-light);
-            font-size: 1.1em;
+            font-size: 1.2em; /* Plus grand */
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 1.8em;
-            margin-top: 2.5em;
-            margin-bottom: 1em;
-            padding-bottom: 0.3em;
-            border-bottom: 1px solid var(--border-color);
+            font-size: 2em; /* Ajusté */
+            margin-top: 3em;
+            margin-bottom: 1.2em;
+            padding-bottom: 0.4em;
+            border-bottom: 2px solid var(--primary-color-medium);
+            font-weight: 600;
         }
 
         h2::before {
-            content: "🏗️ ";
-            margin-right: 0.3em;
+            margin-right: 0.4em;
+            font-size: 1.1em; /* Icône plus visible */
         }
         
         h3 {
             color: var(--primary-color-darker);
-            font-size: 1.4em;
-            margin-top: 1.8em;
-            margin-bottom: 0.8em;
+            font-size: 1.6em; /* Ajusté */
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: 600;
         }
 
         h3::before {
-            content: "🔧 ";
-            margin-right: 0.3em;
-            font-size: 0.9em;
+            margin-right: 0.4em;
+            font-size: 0.95em; /* Icône plus visible */
         }
+
+        h4 {
+            color: var(--text-color);
+            font-size: 1.2em;
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+            font-weight: 500;
+        }
+        h4::before {
+            content: "🔸";
+            margin-right: 0.5em;
+            color: var(--primary-color-medium);
+        }
+
 
         p, li {
             color: var(--text-color);
-            margin-bottom: 0.8em;
+            margin-bottom: 1em; /* Plus d'espacement */
+            font-size: 1.05em; /* Légèrement plus grand pour lisibilité */
         }
 
-        ul {
-            padding-left: 25px;
-            list-style-type: disc;
+        ul, ol { /* Style commun pour listes */
+            padding-left: 30px;
         }
         
-        ul ul {
-            list-style-type: circle;
-            margin-top: 0.5em;
+        ul ul, ol ol { /* Sous-listes */
+            margin-top: 0.6em;
+            margin-bottom: 0.6em;
         }
+        ul { list-style-type: disc; }
+        ol { list-style-type: decimal; }
 
         code {
-            background-color: #eef7f4; /* Vert très pâle */
+            background-color: var(--primary-color-light);
             color: var(--primary-color-darker);
-            padding: 0.2em 0.5em;
-            border-radius: 0.25rem;
-            font-family: "monospace";
-            font-size: 0.9em;
+            padding: 0.25em 0.6em;
+            border-radius: 0.3rem;
+            font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+            font-size: 0.95em;
+            border: 1px solid #ccebe0; /* Bordure subtile */
         }
 
         pre {
-            background-color: #2d3748; /* Gris foncé pour bloc de code */
-            color: #e2e8f0; /* Texte clair pour bloc de code */
-            padding: 1em;
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1.2em;
             border-radius: var(--border-radius-md);
             overflow-x: auto;
-            font-family: "monospace";
-            font-size: 0.9em;
-            margin-bottom: 1em;
+            font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+            font-size: 0.95em;
+            margin: 1.2em 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        pre code { /* Pour s'assurer que le code dans pre n'a pas de fond ou bordure double */
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            font-size: inherit; /* Hérite la taille de pre */
+        }
+
+        .note, .tip, .warning {
+            padding: 1.2em 1.5em;
+            margin: 1.8em 0;
+            border-radius: var(--border-radius-md);
+            font-size: 1em;
         }
 
         .note {
-            background-color: #e6f7f1; /* Vert très pâle (comme fond d'info) */
-            border-left: 4px solid var(--primary-color);
-            padding: 1em;
-            margin: 1.5em 0;
-            border-radius: var(--border-radius-md);
+            background-color: var(--primary-color-light);
+            border-left: 5px solid var(--primary-color);
+        }
+        .tip {
+            background-color: #e6f4ff; /* Bleu clair */
+            border-left: 5px solid #3b82f6; /* Bleu */
+        }
+        .warning {
+            background-color: #fffbeb; /* Jaune clair */
+            border-left: 5px solid #f59e0b; /* Orange/Jaune */
         }
 
-        .note strong {
-            color: var(--primary-color-darker);
+        .note strong, .tip strong, .warning strong {
+            font-weight: 600;
         }
+        .note strong { color: var(--primary-color-darker); }
+        .tip strong { color: #1e40af; } /* Bleu foncé */
+        .warning strong { color: #b45309; } /* Orange foncé */
+
 
         a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         a:hover {
@@ -144,305 +189,521 @@
         }
 
         .feature-card {
-            background-color: #f8fafc;
+            background-color: #fdfdff; /* Blanc très légèrement teinté */
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-md);
-            padding: 1.5em;
-            margin-bottom: 1.5em;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.8em; /* Plus de padding */
+            margin-bottom: 1.8em;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.03);
+            transition: box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            box-shadow: 0 5px 10px rgba(0,0,0,0.07);
+        }
+        .feature-card h3 { /* Titres dans les feature cards */
+            margin-top: 0;
+            border-bottom: 1px dashed var(--primary-color-medium);
+            padding-bottom: 0.4em;
         }
 
         .toc {
-            background-color: #f0f9f6;
-            border: 1px solid #ccebe0;
-            padding: 1.5em;
+            background-color: var(--primary-color-light);
+            border: 1px solid var(--primary-color-medium);
+            padding: 1.8em;
             border-radius: var(--border-radius-md);
-            margin-bottom: 2.5em;
+            margin-bottom: 3em;
         }
         .toc h3 {
             margin-top:0;
             color: var(--primary-color-darker);
+            font-size: 1.5em; /* Ajusté */
         }
         .toc ul {
             list-style-type: none;
             padding-left: 0;
         }
+        .toc ul li {
+            margin-bottom: 0.4em;
+        }
         .toc ul li a {
             display: block;
-            padding: 0.3em 0;
+            padding: 0.4em 0.2em;
+            transition: background-color 0.2s ease, padding-left 0.2s ease;
+            border-radius: 0.25rem;
         }
+        .toc ul li a:hover {
+            background-color: #d0f0e6; /* Vert plus prononcé au survol */
+            padding-left: 0.8em;
+        }
+        .toc ul ul { /* Sous-TOC */
+            padding-left: 1.5em;
+            margin-top: 0.5em;
+        }
+        .toc ul ul li a {
+            font-size: 0.95em;
+        }
+
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5em 0;
+            margin: 1.8em 0;
+            box-shadow: var(--box-shadow-md);
+            border-radius: var(--border-radius-md);
+            overflow: hidden; /* Pour que le radius s'applique aux coins */
         }
         th, td {
             border: 1px solid var(--border-color);
-            padding: 0.8em 1em;
+            padding: 0.9em 1.1em;
             text-align: left;
+            font-size: 1em;
         }
         th {
-            background-color: #e6f7f1;
+            background-color: var(--primary-color-light);
             color: var(--primary-color-darker);
             font-weight: 600;
+            border-bottom: 2px solid var(--primary-color-medium);
         }
-        tr:nth-child(even) {
+        tr:nth-child(even) td { /* Style pour les lignes paires */
             background-color: #f8f9fa;
+        }
+        tr:hover td { /* Survol des lignes */
+            background-color: #eef7f4;
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid var(--primary-color-medium);
             color: var(--text-color-light);
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
+        footer p { font-size: 0.95em; } /* S'assurer que le p hérite bien */
 
         /* Styles spécifiques pour les icônes emoji dans les titres */
+        #introduction h2::before { content: "👋 "; }
         #interface h2::before { content: "🖥️ "; }
         #fonctionnalites h2::before { content: "⚙️ "; }
         #demarrage h2::before { content: "🚀 "; }
         #depannage h2::before { content: "🛠️ "; }
         #contact h2::before { content: "📧 "; }
+        #bonnes-pratiques h2::before { content: "💡 "; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Manuel d'Utilisation</h1>
+            <h1>Manuel d'Utilisation Détaillé</h1>
             <p>Assistant Expert AI Desmarais & Gagné</p>
         </header>
 
         <div class="toc">
             <h3>Table des Matières</h3>
             <ul>
-                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#introduction">1. Introduction</a>
+                    <ul>
+                        <li><a href="#objectif">1.1 Objectif du Manuel</a></li>
+                        <li><a href="#public-cible">1.2 Public Cible</a></li>
+                    </ul>
+                </li>
                 <li><a href="#demarrage">2. Démarrage Rapide</a>
                     <ul>
                         <li><a href="#acces">2.1 Accès à l'application</a></li>
-                        <li><a href="#connexion">2.2 Connexion</a></li>
+                        <li><a href="#connexion">2.2 Connexion et Sécurité</a></li>
                     </ul>
                 </li>
-                <li><a href="#interface">3. Interface Utilisateur</a>
+                <li><a href="#interface">3. Exploration de l'Interface Utilisateur</a>
                     <ul>
-                        <li><a href="#sidebar">3.1 Panneau Latéral (Sidebar)</a></li>
-                        <li><a href="#chat-area">3.2 Zone de Chat Principale</a></li>
-                        <li><a href="#chat-input">3.3 Champ de Saisie (Chat Input)</a></li>
+                        <li><a href="#sidebar">3.1 Panneau Latéral (Sidebar) : Votre Centre de Contrôle</a></li>
+                        <li><a href="#chat-area">3.2 Zone de Chat Principale : Le Cœur de l'Interaction</a></li>
+                        <li><a href="#chat-input">3.3 Champ de Saisie : Communiquer avec l'IA</a></li>
                     </ul>
                 </li>
-                <li><a href="#fonctionnalites">4. Fonctionnalités Clés</a>
+                <li><a href="#fonctionnalites">4. Maîtrise des Fonctionnalités Clés</a>
                     <ul>
-                        <li><a href="#conversation">4.1 Converser avec l'IA</a></li>
-                        <li><a href="#profils">4.2 Gérer les Profils Experts</a></li>
-                        <li><a href="#analyse-docs">4.3 Analyser des Documents</a></li>
-                        <li><a href="#recherche-web">4.4 Utiliser la Recherche Web</a></li>
-                        <li><a href="#historique">4.5 Gérer l'Historique des Conversations</a></li>
-                        <li><a href="#export">4.6 Exporter les Conversations</a></li>
+                        <li><a href="#conversation">4.1 Mener des Conversations Efficaces avec l'IA</a></li>
+                        <li><a href="#profils">4.2 Sélectionner et Comprendre les Profils Experts</a></li>
+                        <li><a href="#analyse-docs">4.3 Analyse Approfondie de Documents</a></li>
+                        <li><a href="#recherche-web">4.4 Exploiter la Puissance de la Recherche Web Intégrée</a></li>
+                        <li><a href="#historique">4.5 Gérer et Consulter l'Historique des Conversations</a></li>
+                        <li><a href="#export">4.6 Exporter des Rapports de Conversation Professionnels</a></li>
                     </ul>
                 </li>
-                <li><a href="#depannage">5. Dépannage et FAQ</a></li>
-                <li><a href="#contact">6. Contact et Support</a></li>
+                <li><a href="#bonnes-pratiques">5. Bonnes Pratiques et Conseils d'Utilisation</a></li>
+                <li><a href="#depannage">6. Dépannage Courant et Foire Aux Questions (FAQ)</a></li>
+                <li><a href="#contact">7. Contact et Support Technique</a></li>
             </ul>
         </div>
 
         <section id="introduction">
             <h2>1. Introduction</h2>
-            <p>Bienvenue dans le manuel d'utilisation de l'Assistant Expert AI de Desmarais & Gagné. Cette application a été conçue pour vous fournir une expertise instantanée et une assistance intelligente dans le domaine de la fabrication métallique et des opérations associées.</p>
-            <p>Grâce à l'intégration de l'IA avancée Claude d'Anthropic, vous pouvez dialoguer avec un expert virtuel, analyser des documents techniques, effectuer des recherches web ciblées et bien plus encore. Ce manuel vous guidera à travers les différentes fonctionnalités pour vous aider à tirer le meilleur parti de cet outil.</p>
+            <p>Bienvenue dans le manuel d'utilisation exhaustif de l'Assistant Expert AI, une solution innovante développée pour Desmarais & Gagné. Cet outil a été conçu pour révolutionner votre approche de la fabrication métallique en vous offrant un accès direct à une expertise spécialisée et des capacités d'analyse avancées.</p>
+            
+            <h3 id="objectif">1.1 Objectif du Manuel</h3>
+            <p>Ce manuel a pour vocation de vous fournir une compréhension approfondie de toutes les fonctionnalités de l'Assistant Expert AI. Que vous soyez un nouvel utilisateur ou que vous cherchiez à optimiser votre utilisation, ce guide vous accompagnera pas à pas. Notre objectif est de vous rendre autonome et efficace dans l'exploitation de cet outil puissant.</p>
+
+            <h3 id="public-cible">1.2 Public Cible</h3>
+            <p>Ce manuel s'adresse à tous les employés de Desmarais & Gagné autorisés à utiliser l'Assistant Expert AI, incluant (mais sans s'y limiter) les estimateurs, les gestionnaires de projet, les ingénieurs, les techniciens et le personnel administratif impliqué dans les processus de fabrication et de gestion.</p>
+            <p>Aucune connaissance préalable en intelligence artificielle n'est requise. Une familiarité avec les opérations de Desmarais & Gagné sera cependant un atout.</p>
         </section>
 
         <section id="demarrage">
             <h2>2. Démarrage Rapide</h2>
             <h3 id="acces">2.1 Accès à l'application</h3>
-            <p>L'application est accessible via une URL web fournie par votre administrateur. Assurez-vous d'avoir une connexion internet stable.</p>
-            <p>Lors de votre première visite, une page d'accueil présentant Desmarais & Gagné s'affichera, avec un formulaire de connexion en bas de page.</p>
-
-            <h3 id="connexion">2.2 Connexion</h3>
-            <p>Pour accéder aux fonctionnalités de l'assistant IA, vous devez vous connecter :</p>
+            <p>L'Assistant Expert AI est une application web. Pour y accéder :</p>
             <ol>
-                <li>Localisez la section "Connexion" sur la page d'accueil.</li>
-                <li>Entrez le mot de passe qui vous a été communiqué dans le champ "Mot de passe".</li>
+                <li>Ouvrez votre navigateur web préféré (Chrome, Firefox, Edge sont recommandés).</li>
+                <li>Saisissez l'URL de l'application qui vous a été communiquée par votre service informatique ou votre responsable.</li>
+                <li>Assurez-vous de disposer d'une connexion Internet active et stable pour une expérience optimale.</li>
+            </ol>
+            <p>La première page que vous verrez est la page d'accueil de Desmarais & Gagné, présentant l'entreprise et ses services. Le formulaire de connexion se trouve généralement en bas de cette page.</p>
+
+            <h3 id="connexion">2.2 Connexion et Sécurité</h3>
+            <p>L'accès à l'Assistant Expert AI est sécurisé par un mot de passe unique pour protéger les informations et les fonctionnalités.</p>
+            <h4>Procédure de Connexion :</h4>
+            <ol>
+                <li>Sur la page d'accueil, faites défiler vers le bas jusqu'à la section "Connexion".</li>
+                <li>Dans le champ intitulé "Mot de passe", saisissez avec attention le mot de passe qui vous a été fourni.</li>
                 <li>Cliquez sur le bouton "Se connecter".</li>
             </ol>
-            <p>Si le mot de passe est correct, vous serez redirigé vers l'interface principale de l'assistant IA. En cas d'erreur, un message "Mot de passe incorrect" s'affichera.</p>
-            <div class="note">
-                <strong>Note :</strong> Le mot de passe est sensible à la casse. Assurez-vous de le saisir correctement.
+            <h4>En cas de succès :</h4>
+            <p>Vous serez redirigé vers l'interface principale de l'Assistant IA, prêt à commencer votre travail.</p>
+            <h4>En cas d'échec :</h4>
+            <p>Un message d'erreur "Mot de passe incorrect" s'affichera sous le champ de saisie. Vérifiez les points suivants :</p>
+            <ul>
+                <li><strong>Sensibilité à la casse :</strong> Le mot de passe distingue les majuscules des minuscules (par exemple, "MotDePasse1" est différent de "motdepasse1").</li>
+                <li><strong>Erreurs de frappe :</strong> Assurez-vous qu'il n'y a pas de fautes de frappe ou d'espaces superflus.</li>
+                <li><strong>Touche Verr. Maj. (Caps Lock) :</strong> Vérifiez que la touche Verr. Maj. n'est pas activée accidentellement.</li>
+            </ul>
+            <div class="warning">
+                <strong>Sécurité du mot de passe :</strong> Ne partagez jamais votre mot de passe. Si vous suspectez que votre mot de passe a été compromis, informez-en immédiatement votre responsable.
             </div>
         </section>
 
         <section id="interface">
-            <h2>3. Interface Utilisateur</h2>
-            <p>Une fois connecté, l'interface principale se compose de trois zones principales :</p>
+            <h2>3. Exploration de l'Interface Utilisateur</h2>
+            <p>L'interface de l'Assistant Expert AI est conçue pour être intuitive et efficace. Elle se divise en trois composantes majeures :</p>
 
-            <h3 id="sidebar">3.1 Panneau Latéral (Sidebar)</h3>
-            <p>Situé sur la gauche de l'écran, le panneau latéral regroupe les commandes et options principales :</p>
+            <h3 id="sidebar">3.1 Panneau Latéral (Sidebar) : Votre Centre de Contrôle</h3>
+            <p>Le panneau latéral, positionné à gauche, est votre tableau de bord principal pour accéder aux différentes fonctionnalités et configurations de l'application.</p>
             <ul>
-                <li><strong>Logo et Nom :</strong> Affiche le logo de Desmarais & Gagné.</li>
-                <li><strong>Nouvelle Consultation :</strong> Bouton pour démarrer une nouvelle session de chat, effaçant la conversation en cours (après sauvegarde).</li>
-                <li><strong>Profil Expert :</strong>
+                <li>
+                    <h4>Logo et Nom de l'Entreprise</h4>
+                    <p>Affiche fièrement le logo de Desmarais & Gagné, rappelant l'identité de l'outil.</p>
+                </li>
+                <li>
+                    <h4>✨ Nouvelle Consultation</h4>
+                    <p>Ce bouton permet de réinitialiser la session de chat. Cliquer dessus aura les effets suivants :</p>
                     <ul>
-                        <li>Menu déroulant pour sélectionner le profil d'expertise de l'IA (ex: Estimateur, Expert Soudure). Changer de profil démarre une nouvelle consultation.</li>
+                        <li>La conversation actuelle (si elle contient plus que le message d'accueil) sera automatiquement sauvegardée dans l'historique.</li>
+                        <li>La zone de chat sera vidée, prête pour une nouvelle interaction.</li>
+                        <li>L'IA affichera son message d'accueil initial en fonction du profil expert actuellement sélectionné.</li>
+                    </ul>
+                    <p>Utilisez cette fonction lorsque vous souhaitez aborder un sujet complètement différent ou commencer une nouvelle analyse sans lien avec la précédente.</p>
+                </li>
+                <li>
+                    <h4>👤 Profil Expert</h4>
+                    <p>Permet de moduler l'expertise de l'IA. Un menu déroulant liste les profils disponibles (ex: "ESTIMATEUR", "Expert Soudure", "Généraliste").</p>
+                    <ul>
+                        <li>La sélection d'un nouveau profil entraîne automatiquement le démarrage d'une "Nouvelle Consultation" (la conversation précédente est sauvegardée).</li>
+                        <li>L'IA adoptera alors les connaissances, le ton et les directives spécifiques au profil choisi.</li>
                     </ul>
                 </li>
-                <li><strong>Analyse Fichiers :</strong>
+                <li>
+                    <h4>📄 Analyse Fichiers</h4>
+                    <p>Cette section vous permet de soumettre des documents à l'IA pour analyse.</p>
                     <ul>
-                        <li>Permet de téléverser des fichiers (PDF, DOCX, CSV, TXT, JPG, PNG, WEBP) pour analyse.</li>
-                        <li>Cliquez sur "Browse files" ou glissez-déposez vos fichiers.</li>
-                        <li>Cliquez sur "Analyser Fichiers" pour lancer l'analyse par l'IA.</li>
+                        <li><strong>Téléversement :</strong> Cliquez sur "Browse files" pour ouvrir une boîte de dialogue de sélection de fichiers, ou glissez-déposez directement vos fichiers dans la zone dédiée. Vous pouvez sélectionner plusieurs fichiers à la fois.</li>
+                        <li><strong>Formats supportés :</strong> PDF, DOCX (documents Word), CSV (fichiers texte délimités par des virgules), TXT (fichiers texte brut), et images (JPG, JPEG, PNG, WEBP).</li>
+                        <li><strong>Lancement de l'analyse :</strong> Une fois vos fichiers téléversés (ils apparaîtront listés), cliquez sur le bouton "🔍 Analyser Fichiers". Un message confirmant le téléversement sera ajouté à votre conversation, puis l'IA commencera l'analyse. Les résultats s'afficheront dans la zone de chat principale.</li>
                     </ul>
                 </li>
-                <li><strong>Recherche Web :</strong>
+                <li>
+                    <h4>🔎 Recherche Web</h4>
+                    <p>Contient un expander (section dépliable) intitulé "Comment utiliser la recherche web". En cliquant dessus, vous découvrirez des instructions et exemples pour utiliser la fonctionnalité de recherche web de l'IA via la commande <code>/search</code>.</p>
+                </li>
+                <li>
+                    <h4>🕒 Historique</h4>
+                    <p>Conserve une trace de vos précédentes consultations. Les conversations sont listées par nom (généralement les premiers mots de votre première question) et date de dernière mise à jour.</p>
                     <ul>
-                        <li>Un expander "Comment utiliser la recherche web" explique comment utiliser la commande <code>/search</code>.</li>
+                        <li><strong>Charger :</strong> Cliquez sur le nom d'une conversation pour la recharger intégralement dans la zone de chat. La conversation que vous aviez en cours avant le chargement sera sauvegardée.</li>
+                        <li><strong>Supprimer :</strong> Cliquez sur l'icône poubelle (🗑️) à droite du nom d'une conversation pour la supprimer définitivement de l'historique. Soyez prudent, cette action est irréversible.</li>
                     </ul>
                 </li>
-                <li><strong>Historique :</strong>
+                <li>
+                    <h4>📥 Export</h4>
+                    <p>Vous permet de générer un rapport HTML de votre conversation actuelle.</p>
                     <ul>
-                        <li>Affiche la liste des conversations sauvegardées.</li>
-                        <li>Cliquez sur le nom d'une conversation pour la charger.</li>
-                        <li>Cliquez sur l'icône poubelle (🗑️) pour supprimer une conversation.</li>
+                        <li><strong>Nom client (optionnel) :</strong> Entrez un nom de client ou une référence de projet ici si vous souhaitez qu'il figure sur le rapport exporté.</li>
+                        <li><strong>Générer le rapport :</strong> Cliquez sur "📄 Rapport HTML". L'application va préparer le fichier.</li>
+                        <li><strong>Télécharger :</strong> Un bouton "⬇️ Télécharger HTML" apparaîtra alors. Cliquez dessus pour enregistrer le fichier <code>.html</code> sur votre ordinateur.</li>
                     </ul>
                 </li>
-                <li><strong>Export :</strong>
-                    <ul>
-                        <li><strong>Nom client (optionnel) :</strong> Champ pour ajouter un nom de client au rapport HTML.</li>
-                        <li>Bouton "Rapport HTML" pour générer un aperçu du rapport.</li>
-                        <li>Bouton "Télécharger HTML" (apparaît après génération) pour sauvegarder la conversation en cours au format HTML.</li>
-                    </ul>
+                <li>
+                    <h4>🔗 Manuel d'instruction</h4>
+                    <p>Fournit un lien direct vers ce document, vous permettant de consulter l'aide à tout moment.</p>
                 </li>
-                <li><strong>Manuel d'instruction :</strong>
-                    <ul>
-                        <li>Lien vers ce manuel d'utilisation.</li>
-                    </ul>
+                <li>
+                    <h4>🚪 Déconnexion</h4>
+                    <p>Cliquez sur ce bouton pour mettre fin à votre session et retourner à la page d'accueil/connexion. Toutes les données de session non sauvegardées (comme les fichiers en cours de téléversement non encore analysés) pourraient être perdues, bien que les conversations soient généralement sauvegardées avant la déconnexion effective.</p>
                 </li>
-                <li><strong>Déconnexion :</strong> Bouton pour se déconnecter de l'application et retourner à la page d'accueil.</li>
             </ul>
 
-            <h3 id="chat-area">3.2 Zone de Chat Principale</h3>
-            <p>C'est la zone centrale où s'affiche l'échange de messages entre vous et l'assistant IA. Les messages de l'utilisateur apparaissent généralement à droite, et ceux de l'assistant à gauche. Les résultats d'analyse de documents et de recherche web s'affichent également ici.</p>
-
-            <h3 id="chat-input">3.3 Champ de Saisie (Chat Input)</h3>
-            <p>Situé en bas de la zone de chat principale, ce champ vous permet de :</p>
+            <h3 id="chat-area">3.2 Zone de Chat Principale : Le Cœur de l'Interaction</h3>
+            <p>Cet espace central de l'écran est dédié à l'affichage de votre dialogue avec l'Assistant Expert AI.</p>
             <ul>
-                <li>Poser des questions à l'IA.</li>
-                <li>Donner des instructions.</li>
-                <li>Taper des commandes spécifiques comme <code>/search [votre requête]</code>.</li>
+                <li><strong>Messages Utilisateur :</strong> Vos questions et instructions apparaissent généralement alignées à droite, souvent avec un fond de couleur distinct (par exemple, un vert pâle associé à Desmarais & Gagné).</li>
+                <li><strong>Réponses de l'Assistant :</strong> Les réponses de l'IA, les résultats d'analyse de documents, et les synthèses de recherche web sont affichés alignés à gauche, souvent avec un fond blanc ou gris clair.</li>
+                <li><strong>Formatage Riche :</strong> L'IA peut utiliser des mises en forme telles que des listes, des tableaux, du texte en gras, et des blocs de code pour présenter l'information de manière claire et structurée.</li>
+                <li><strong>Défilement :</strong> Si la conversation devient longue, une barre de défilement apparaîtra pour vous permettre de naviguer à travers l'historique des messages de la session en cours.</li>
             </ul>
-            <p>Tapez votre message et appuyez sur Entrée ou cliquez sur l'icône d'envoi (flèche).</p>
+
+            <h3 id="chat-input">3.3 Champ de Saisie : Communiquer avec l'IA</h3>
+            <p>Localisé en bas de la zone de chat principale, ce champ de texte est votre principal moyen d'interaction avec l'IA.</p>
+            <ul>
+                <li><strong>Saisie de Texte :</strong> Cliquez dans le champ (qui affiche souvent "Posez votre question ou tapez /search [recherche web]...") et commencez à taper votre message.</li>
+                <li><strong>Envoi du Message :</strong>
+                    <ul>
+                        <li>Appuyez sur la touche <code>Entrée</code> de votre clavier.</li>
+                        <li>Ou cliquez sur l'icône d'envoi (généralement une flèche ou un avion en papier) à droite du champ de saisie.</li>
+                    </ul>
+                </li>
+                <li><strong>Commandes Spéciales :</strong> En plus des questions en langage naturel, vous pouvez utiliser des commandes comme <code>/search [votre requête]</code> pour activer des fonctionnalités spécifiques.</li>
+            </ul>
+            <div class="tip">
+                <strong>Astuce :</strong> Pour des questions longues ou des instructions détaillées, vous pouvez rédiger votre texte dans un éditeur externe puis le copier-coller dans le champ de saisie.
+            </div>
         </section>
 
         <section id="fonctionnalites">
-            <h2>4. Fonctionnalités Clés</h2>
+            <h2>4. Maîtrise des Fonctionnalités Clés</h2>
 
             <div class="feature-card">
-                <h3 id="conversation">4.1 Converser avec l'IA</h3>
-                <p>Interagissez naturellement avec l'assistant IA en tapant vos questions ou requêtes dans le champ de saisie. L'IA utilisera le profil expert sélectionné et l'historique de la conversation en cours pour formuler ses réponses.</p>
-                <p>L'IA est conçue pour comprendre le contexte et fournir des réponses pertinentes basées sur sa programmation et la base de connaissances du profil actif.</p>
+                <h3 id="conversation">4.1 Mener des Conversations Efficaces avec l'IA</h3>
+                <p>L'essence de l'Assistant Expert AI réside dans sa capacité à dialoguer. Pour optimiser vos interactions :</p>
+                <h4>Soyez Clair et Précis</h4>
+                <p>Formulez vos questions de manière explicite. Plus votre demande est claire, plus la réponse de l'IA sera pertinente.</p>
+                <ul>
+                    <li>👎 Moins efficace : "Parle-moi de l'acier."</li>
+                    <li>👍 Plus efficace : "Quelles sont les principales différences de soudabilité entre l'acier inoxydable 304 et 316L pour des applications structurelles extérieures ?"</li>
+                </ul>
+                <h4>Fournissez du Contexte</h4>
+                <p>Si votre question fait suite à une discussion précédente ou concerne un projet spécifique, rappelez brièvement le contexte si nécessaire, surtout si vous avez démarré une nouvelle consultation ou changé de profil entre-temps.</p>
+                <h4>Utilisez des Questions de Suivi</h4>
+                <p>N'hésitez pas à approfondir un sujet. Si une réponse n'est pas assez détaillée, demandez des clarifications ou des exemples. "Peux-tu m'en dire plus sur le point 3 ?" ou "Donne-moi un exemple concret d'application de cette norme."</p>
+                <h4>Segmentation des Requêtes Complexes</h4>
+                <p>Pour des problèmes complexes, décomposez-les en plusieurs questions plus petites. Cela aide l'IA à traiter chaque aspect plus efficacement.</p>
             </div>
 
             <div class="feature-card">
-                <h3 id="profils">4.2 Gérer les Profils Experts</h3>
-                <p>L'application permet de choisir différents "profils experts" pour l'IA. Chaque profil dote l'IA de connaissances et d'un style de réponse spécifiques à un domaine (ex: estimation, soudure, gestion de stock).</p>
+                <h3 id="profils">4.2 Sélectionner et Comprendre les Profils Experts</h3>
+                <p>Les profils experts permettent d'adapter l'IA à des tâches spécifiques. Chaque profil est doté d'une "personnalité" et d'une base de connaissances spécialisée.</p>
+                <h4>Comment Choisir un Profil ?</h4>
                 <ul>
-                    <li>Pour changer de profil, utilisez le menu déroulant "Profil Expert" dans le panneau latéral.</li>
-                    <li><strong>Important :</strong> Changer de profil sauvegardera la conversation en cours (si elle contient plus que le message d'accueil) et démarrera une nouvelle consultation avec un message d'accueil du nouveau profil.</li>
+                    <li><strong>ESTIMATEUR :</strong> Idéal pour les questions relatives aux coûts, aux temps de fabrication, à l'analyse de devis, et à la gestion des matériaux selon les standards de Desmarais & Gagné (si la base de connaissance `ESTIMATEUR.txt` est chargée et complète).</li>
+                    <li><strong>Expert Soudure (Exemple) :</strong> Pour des questions techniques sur les procédés de soudage, les normes, les matériaux spécifiques, etc.</li>
+                    <li><strong>Généraliste (ou Profil par Défaut) :</strong> Pour des questions plus générales ou si aucun profil spécifique ne correspond à votre besoin immédiat.</li>
                 </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3 id="analyse-docs">4.3 Analyser des Documents</h3>
-                <p>L'assistant peut analyser le contenu de divers types de fichiers :</p>
-                <ul>
-                    <li><strong>Formats supportés :</strong> PDF, DOCX, CSV, TXT, et images (JPG, JPEG, PNG, WEBP).</li>
-                    <li><strong>Processus :</strong>
-                        <ol>
-                            <li>Dans le panneau latéral, section "Analyse Fichiers", cliquez sur "Browse files" ou glissez-déposez vos fichiers.</li>
-                            <li>Une fois les fichiers sélectionnés, ils apparaissent listés.</li>
-                            <li>Cliquez sur le bouton "Analyser Fichiers".</li>
-                            <li>Un message indiquant que vous avez téléversé des fichiers sera ajouté à la conversation.</li>
-                            <li>L'IA traitera les fichiers et affichera son analyse directement dans la zone de chat.</li>
-                        </ol>
-                    </li>
-                </ul>
+                <h4>Impact du Changement de Profil</h4>
+                <p>Lorsque vous changez de profil via le menu déroulant dans le panneau latéral :</p>
+                <ol>
+                    <li>Votre conversation actuelle est sauvegardée dans l'historique.</li>
+                    <li>Une nouvelle consultation démarre.</li>
+                    <li>L'IA vous accueillera avec un message adapté à son nouveau rôle. Ses réponses ultérieures seront basées sur les directives et connaissances de ce nouveau profil.</li>
+                </ol>
                 <div class="note">
-                    <strong>Conseil :</strong> Pour des analyses plus précises, vous pouvez donner un contexte à l'IA dans le chat avant ou après avoir soumis les fichiers pour analyse. Par exemple : "Peux-tu analyser ces plans et me donner une estimation des matériaux nécessaires ?"
+                    <strong>Comprendre les Limites du Profil :</strong> Chaque profil est "programmé" pour opérer dans un certain cadre. Si vous posez une question très éloignée de l'expertise du profil actuel (par exemple, demander des conseils en marketing au profil "ESTIMATEUR"), la réponse pourrait être moins pertinente ou l'IA pourrait indiquer qu'elle sort de son domaine de compétence.
                 </div>
             </div>
 
             <div class="feature-card">
-                <h3 id="recherche-web">4.4 Utiliser la Recherche Web</h3>
-                <p>L'IA peut effectuer des recherches web pour trouver des informations récentes ou spécifiques.</p>
+                <h3 id="analyse-docs">4.3 Analyse Approfondie de Documents</h3>
+                <p>L'analyse de documents est une fonctionnalité puissante pour extraire des informations, résumer des contenus et obtenir des perspectives techniques.</p>
+                <h4>Types de Fichiers et Cas d'Usage Typiques :</h4>
                 <ul>
-                    <li>Pour initier une recherche web, tapez la commande <code>/search</code> suivie de votre requête dans le champ de saisie.</li>
-                    <li><strong>Exemple :</strong> <code>/search normes de construction acier Québec 2024</code></li>
-                    <li>L'IA effectuera la recherche et présentera une synthèse des résultats trouvés directement dans la zone de chat.</li>
+                    <li><strong>PDF :</strong> Analyse de plans techniques, fiches de spécifications, rapports, normes. L'IA tentera d'extraire le texte. Si le PDF est une image numérisée sans OCR, l'extraction de texte peut être limitée.</li>
+                    <li><strong>DOCX :</strong> Devis, cahiers des charges, correspondances techniques.</li>
+                    <li><strong>CSV :</strong> Listes de matériaux, données tabulaires, nomenclatures. L'IA peut aider à interpréter la structure.</li>
+                    <li><strong>TXT :</strong> Notes brutes, descriptions de projets, extraits de code.</li>
+                    <li><strong>Images (JPG, PNG, WEBP) :</strong> Croquis techniques, photos de pièces, schémas. L'IA tentera de décrire l'image et d'identifier les éléments pertinents (selon ses capacités de vision).</li>
+                </ul>
+                <h4>Procédure Détaillée d'Analyse :</h4>
+                <ol>
+                    <li>Accédez à la section "Analyse Fichiers" dans le panneau latéral.</li>
+                    <li>Utilisez le bouton "Browse files" ou la fonction glisser-déposer pour ajouter un ou plusieurs fichiers. La liste des fichiers sélectionnés s'affiche.</li>
+                    <li>Une fois tous les fichiers souhaités ajoutés, cliquez sur "🔍 Analyser Fichiers".</li>
+                    <li>Un message utilisateur sera automatiquement ajouté à la conversation, indiquant: "J'ai téléversé X fichier(s) ([nom des fichiers]) pour analyse. Peux-tu les examiner ?"</li>
+                    <li>L'IA prendra alors le relais. Un indicateur de chargement ("spinner") peut apparaître pendant que l'IA traite les fichiers.</li>
+                    <li>Les résultats de l'analyse seront postés dans la zone de chat sous forme d'un message de l'assistant. Le format de la réponse peut varier (résumé, liste à puces, tableau) en fonction du contenu des documents et du profil expert actif.</li>
+                </ol>
+                <h4>Conseils pour une Analyse Efficace :</h4>
+                <ul>
+                    <li><strong>Fichiers clairs et lisibles :</strong> La qualité de l'analyse dépend de la qualité des documents fournis.</li>
+                    <li><strong>Contexte :</strong> Après l'analyse, n'hésitez pas à poser des questions spécifiques sur certaines parties des documents. Par exemple: "Dans le PDF 'Plan_Ensemble_01', quelle est la spécification pour la soudure de la section A-A ?"</li>
+                    <li><strong>Analyse de plusieurs fichiers :</strong> Si vous téléversez plusieurs fichiers, l'IA tentera souvent de faire une synthèse ou de trouver des liens entre eux, si pertinent. Vous pouvez aussi la guider : "Compare les spécifications de ces deux fiches techniques."</li>
+                </ul>
+                <div class="warning">
+                    <strong>Limites :</strong> L'IA ne peut pas "exécuter" de code présent dans les fichiers, ni interagir avec des éléments dynamiques (macros Excel, formulaires PDF interactifs). L'analyse des images complexes ou très détaillées peut avoir ses limites. Pour les PDF basés uniquement sur des images, la reconnaissance optique de caractères (OCR) n'est pas explicitement garantie et dépend des capacités sous-jacentes de l'IA.
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <h3 id="recherche-web">4.4 Exploiter la Puissance de la Recherche Web Intégrée</h3>
+                <p>La fonction de recherche web permet à l'IA d'accéder à des informations potentiellement plus récentes ou très spécifiques non incluses dans sa base de formation initiale ou dans les profils experts.</p>
+                <h4>Comment l'Utiliser :</h4>
+                <p>Dans le champ de saisie du chat, tapez la commande <code>/search</code> suivie de votre question ou des mots-clés de recherche.</p>
+                <pre><code>/search dernières normes CSA pour la soudure robotisée de l'acier HSS</code></pre>
+                <pre><code>/search fournisseurs de tubes DOM certifiés ISO 9001 au Québec</code></pre>
+                <pre><code>/search prix actuel de l'acier A36 en Amérique du Nord</code></pre>
+                <h4>Que se Passe-t-il Ensuite ?</h4>
+                <ol>
+                    <li>L'IA interprète votre requête de recherche.</li>
+                    <li>Elle utilise ses outils internes pour interroger des sources web pertinentes.</li>
+                    <li>Elle synthétise les informations trouvées et vous les présente sous une forme lisible et structurée dans la zone de chat. Cela peut inclure des résumés, des points clés, et parfois des liens vers les sources (selon les capacités de l'IA).</li>
+                </ol>
+                <h4>Conseils pour des Recherches Web Efficaces :</h4>
+                <ul>
+                    <li><strong>Mots-clés précis :</strong> Utilisez des termes techniques et spécifiques à votre domaine.</li>
+                    <li><strong>Langage naturel :</strong> Vous pouvez formuler votre recherche comme une question.</li>
+                    <li><strong>Recherche sur site spécifique :</strong> Pour cibler un site web particulier, ajoutez <code>site:nomdusite.com</code> à votre requête.
+                        <pre><code>/search spécifications techniques diables DG-600 site:dg-inc.qc.ca</code></pre>
+                    </li>
+                    <li><strong>Combiner avec le chat :</strong> Après avoir reçu les résultats de la recherche, vous pouvez poser des questions de suivi à l'IA sur les informations obtenues.</li>
                 </ul>
                  <div class="note">
-                    <strong>Note sur la recherche :</strong> L'IA utilise des outils de recherche intégrés. La pertinence des résultats dépend de la clarté de votre requête. Pour rechercher sur un site spécifique, vous pouvez utiliser la syntaxe : <code>/search votre requête site:exemple.com</code>.
+                    <strong>Fiabilité des sources :</strong> Bien que l'IA s'efforce de fournir des informations précises, il est toujours recommandé de faire preuve de discernement critique envers les informations obtenues via des recherches web, comme vous le feriez avec n'importe quel moteur de recherche. L'IA synthétise ce qu'elle trouve.
                 </div>
             </div>
 
             <div class="feature-card">
-                <h3 id="historique">4.5 Gérer l'Historique des Conversations</h3>
-                <p>Chaque interaction significative est automatiquement sauvegardée pour que vous puissiez y revenir plus tard.</p>
+                <h3 id="historique">4.5 Gérer et Consulter l'Historique des Conversations</h3>
+                <p>L'historique est un outil précieux pour retrouver des informations, reprendre des discussions ou analyser des travaux passés.</p>
+                <h4>Fonctionnement de la Sauvegarde :</h4>
+                <p>Les conversations sont généralement sauvegardées automatiquement dans les situations suivantes :</p>
                 <ul>
-                    <li><strong>Sauvegarde :</strong> Les conversations sont sauvegardées automatiquement lorsque vous envoyez un message, changez de profil, ou démarrez une nouvelle consultation. Une conversation n'est généralement pas sauvegardée si elle ne contient que le message d'accueil initial de l'IA.</li>
-                    <li><strong>Chargement :</strong> Dans la section "Historique" du panneau latéral, cliquez sur le nom d'une conversation sauvegardée pour la recharger dans la zone de chat.</li>
-                    <li><strong>Suppression :</strong> Cliquez sur l'icône poubelle (🗑️) à côté du nom d'une conversation dans l'historique pour la supprimer définitivement. Une confirmation n'est généralement pas demandée.</li>
+                    <li>Après l'envoi d'un message par l'utilisateur.</li>
+                    <li>Avant le démarrage d'une "Nouvelle Consultation".</li>
+                    <li>Avant le changement d'un "Profil Expert".</li>
+                    <li>Avant le chargement d'une conversation depuis l'historique.</li>
                 </ul>
+                <p>Une conversation qui ne contient que le message d'accueil initial de l'IA et aucune interaction de l'utilisateur n'est généralement pas sauvegardée pour éviter d'encombrer l'historique.</p>
+                <h4>Utilisation de l'Historique (Panneau Latéral) :</h4>
+                <ul>
+                    <li><strong>Affichage :</strong> La liste montre les conversations par leur "nom" (souvent généré à partir des premiers mots de votre première question dans cette conversation) et leur date de dernière mise à jour. Les plus récentes apparaissent en haut.</li>
+                    <li><strong>Chargement :</strong>
+                        <ol>
+                            <li>Identifiez la conversation que vous souhaitez revoir.</li>
+                            <li>Cliquez sur son nom.</li>
+                            <li>La conversation sélectionnée s'affichera intégralement dans la zone de chat principale, remplaçant la conversation qui y était active (cette dernière étant sauvegardée avant le changement).</li>
+                        </ol>
+                    </li>
+                    <li><strong>Suppression :</strong>
+                        <ol>
+                            <li>Localisez la conversation à supprimer.</li>
+                            <li>Cliquez sur l'icône poubelle (🗑️) située à droite du nom de la conversation.</li>
+                            <li>La conversation sera immédiatement et définitivement supprimée de la base de données. <strong>Attention, il n'y a pas de corbeille ni de confirmation.</strong></li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <strong>Nommer implicitement vos conversations :</strong> Comme le nom de la conversation est souvent basé sur votre première question, essayez de commencer une nouvelle discussion importante par une question claire et distinctive. Cela facilitera la recherche ultérieure dans l'historique.
+                </div>
             </div>
 
             <div class="feature-card">
-                <h3 id="export">4.6 Exporter les Conversations</h3>
-                <p>Vous pouvez exporter la conversation en cours sous forme de fichier HTML autonome.</p>
+                <h3 id="export">4.6 Exporter des Rapports de Conversation Professionnels</h3>
+                <p>L'export HTML vous permet de créer un document autonome de votre conversation, facile à partager, archiver ou imprimer.</p>
+                <h4>Procédure d'Exportation :</h4>
+                <ol>
+                    <li>Assurez-vous que la conversation que vous souhaitez exporter est actuellement active dans la zone de chat principale.</li>
+                    <li>Dans le panneau latéral, localisez la section "📥 Export".</li>
+                    <li><strong>Nom client (optionnel) :</strong> Si vous souhaitez que le rapport mentionne un client spécifique ou une référence de projet, saisissez-la dans ce champ. Ce nom sera inclus dans l'en-tête du rapport HTML.</li>
+                    <li>Cliquez sur le bouton "📄 Rapport HTML". L'application va alors générer le contenu du rapport en mémoire. Un message de succès ("Rapport prêt.") devrait s'afficher brièvement.</li>
+                    <li>Suite à la génération, un nouveau bouton "⬇️ Télécharger HTML" apparaîtra juste en dessous. Cliquez sur ce bouton.</li>
+                    <li>Votre navigateur vous proposera alors de sauvegarder un fichier <code>.html</code>. Le nom du fichier sera structuré (par exemple: <code>Rapport_Desmarais_&_Gagné_Conv[ID]_[DateHeure].html</code>).</li>
+                </ol>
+                <h4>Contenu du Rapport HTML :</h4>
+                <p>Le fichier HTML généré inclura :</p>
                 <ul>
-                    <li>Dans le panneau latéral, section "Export" :
-                        <ol>
-                            <li>Optionnellement, entrez un nom dans le champ "Nom client (optionnel)". Ce nom apparaîtra sur le rapport.</li>
-                            <li>Cliquez sur le bouton "Rapport HTML". Cela prépare les données pour le téléchargement.</li>
-                            <li>Un bouton "⬇️ Télécharger HTML" apparaîtra. Cliquez dessus pour sauvegarder le fichier sur votre ordinateur.</li>
-                        </ol>
-                    </li>
-                    <li>Le fichier HTML contiendra l'intégralité des messages de la conversation actuelle, formatés pour une lecture facile, incluant la date, le profil expert utilisé et l'ID de la conversation (si existant).</li>
+                    <li>Un en-tête avec "Rapport Desmarais & Gagné".</li>
+                    <li>Le nom du profil expert utilisé durant la conversation.</li>
+                    <li>Le nom du client (si fourni).</li>
+                    <li>La date et l'heure de génération du rapport.</li>
+                    <li>L'ID de la conversation (si elle a déjà été sauvegardée).</li>
+                    <li>L'intégralité des messages échangés (utilisateur et assistant), présentés dans un format de chat lisible, avec les couleurs et le style de l'application.</li>
+                    <li>Le contenu Markdown (listes, tableaux, code) sera correctement rendu en HTML.</li>
                 </ul>
+                <div class="note">
+                    <strong>Autonomie du fichier :</strong> Le fichier HTML exporté est autonome. Il contient tous les styles CSS nécessaires à son affichage et ne dépend pas d'une connexion à l'application. Vous pouvez l'ouvrir dans n'importe quel navigateur web.
+                </div>
             </div>
         </section>
 
+        <section id="bonnes-pratiques">
+            <h2>5. Bonnes Pratiques et Conseils d'Utilisation</h2>
+            <ul>
+                <li><strong>Formulez des questions claires et concises :</strong> Plus votre demande est précise, meilleure sera la réponse de l'IA. Évitez les ambiguïtés.</li>
+                <li><strong>Utilisez les profils experts à bon escient :</strong> Choisissez le profil le plus adapté à la nature de votre requête pour obtenir des réponses spécialisées.</li>
+                <li><strong>Décomposez les tâches complexes :</strong> Pour des analyses ou des questions multifacettes, segmentez votre demande en plusieurs interactions.</li>
+                <li><strong>Vérifiez les informations critiques :</strong> Bien que l'IA soit conçue pour être précise, pour des données cruciales (estimations finales, spécifications critiques), une validation humaine reste recommandée.</li>
+                <li><strong>Exploitez l'historique :</strong> Revoyez les conversations passées pour éviter de répéter des questions ou pour retrouver des informations utiles.</li>
+                <li><strong>Donnez du feedback (si possible) :</strong> Si un mécanisme de feedback est implémenté ultérieurement, utilisez-le pour aider à améliorer les performances de l'IA.</li>
+                <li><strong>Soyez patient avec les analyses complexes :</strong> L'analyse de gros documents ou les requêtes nécessitant des recherches web approfondies peuvent prendre quelques instants.</li>
+                <li><strong>Utilisez la fonction d'export :</strong> Archivez les conversations importantes ou partagez des rapports clairs avec vos collègues ou clients.</li>
+                <li><strong>Consultez régulièrement ce manuel :</strong> De nouvelles fonctionnalités ou des mises à jour des fonctionnalités existantes pourraient y être documentées.</li>
+            </ul>
+        </section>
+
         <section id="depannage">
-            <h2>5. Dépannage et FAQ</h2>
+            <h2>6. Dépannage Courant et Foire Aux Questions (FAQ)</h2>
             <dl>
+                <dt><strong>L'application est lente ou ne répond pas.</strong></dt>
+                <dd>Vérifiez votre connexion internet. Essayez de rafraîchir la page (F5 ou Ctrl+R / Cmd+R). Si le problème persiste, l'application ou le serveur pourraient rencontrer des difficultés temporaires. Réessayez plus tard ou contactez le support.</dd>
+
                 <dt><strong>L'application affiche "Erreur d'importation des modules locaux" ou "Erreur critique: ANTHROPIC_API_KEY non configurée".</strong></dt>
-                <dd>Cela indique un problème de configuration de l'application, généralement lié aux clés API. Contactez votre administrateur système.</dd>
+                <dd>Ceci est généralement un problème de configuration côté serveur, souvent lié aux clés d'API nécessaires au fonctionnement de l'IA. Veuillez signaler ce problème à votre administrateur système ou au support technique de Desmarais & Gagné.</dd>
 
-                <dt><strong>Je reçois un message "Mot de passe incorrect".</strong></dt>
-                <dd>Vérifiez que vous avez saisi le bon mot de passe, en respectant la casse (majuscules/minuscules). Si le problème persiste, contactez votre administrateur.</dd>
+                <dt><strong>J'ai oublié mon mot de passe / Mon mot de passe ne fonctionne plus.</strong></dt>
+                <dd>Contactez votre administrateur système ou le responsable de l'application pour une réinitialisation ou une vérification du mot de passe.</dd>
 
-                <dt><strong>L'analyse de document ne fonctionne pas ou retourne une erreur.</strong></dt>
-                <dd>Assurez-vous que le format de fichier est supporté (PDF, DOCX, CSV, TXT, JPG, PNG, WEBP). Les fichiers très volumineux ou corrompus peuvent également causer des problèmes. Essayez avec un fichier plus simple pour isoler le problème.</dd>
+                <dt><strong>L'analyse de document échoue systématiquement pour un type de fichier spécifique.</strong></dt>
+                <dd>Assurez-vous que le format est bien listé parmi les formats supportés. Il se peut aussi que le fichier soit corrompu ou protégé par mot de passe (ce que l'IA ne peut généralement pas outrepasser). Essayez avec un autre fichier du même type mais plus simple. Si le problème persiste pour des fichiers valides, signalez-le.</dd>
 
-                <dt><strong>La recherche web avec <code>/search</code> ne donne pas les résultats attendus.</strong></dt>
-                <dd>Essayez de reformuler votre requête pour être plus précis. Utilisez des mots-clés pertinents. Si vous cherchez sur un site spécifique, utilisez la syntaxe <code>site:nomdusite.com</code> dans votre requête.</dd>
+                <dt><strong>Les résultats de la recherche web semblent obsolètes ou incorrects.</strong></dt>
+                <dd>La fraîcheur des informations dépend des capacités de l'outil de recherche de l'IA. Pour des données très récentes ou sujettes à des changements rapides (comme les prix de marché), il est toujours bon de croiser les sources. Vous pouvez aussi essayer de reformuler votre requête pour cibler des sources plus officielles.</dd>
                 
-                <dt><strong>Comment savoir quel profil expert est actif ?</strong></dt>
-                <dd>Le nom du profil expert actif est affiché dans le menu déroulant de la section "Profil Expert" du panneau latéral, ainsi que dans le titre de la zone de chat principale. Le message d'accueil de l'IA mentionne également souvent son rôle/profil.</dd>
+                <dt><strong>Puis-je utiliser l'application sur mon téléphone mobile ou ma tablette ?</strong></dt>
+                <dd>L'application est conçue pour être responsive et devrait fonctionner sur les appareils mobiles. Cependant, l'expérience utilisateur optimale (notamment pour la gestion de fichiers multiples ou la lecture de longs rapports) est généralement obtenue sur un ordinateur de bureau. Des ajustements de style sont appliqués pour les petits écrans.</dd>
+
+                <dt><strong>Où sont stockées mes conversations ? Sont-elles sécurisées ?</strong></dt>
+                <dd>Les conversations sont stockées dans une base de données locale au serveur sur lequel l'application est hébergée (par exemple, `conversations.db`). Les mesures de sécurité dépendent de la configuration globale de ce serveur. Pour des détails précis sur la politique de sécurité et de confidentialité des données, veuillez consulter la documentation interne de Desmarais & Gagné ou contacter votre responsable.</dd>
             </dl>
         </section>
 
         <section id="contact">
-            <h2>6. Contact et Support</h2>
-            <p>Pour toute question technique, problème non résolu par ce manuel, ou suggestion d'amélioration, veuillez contacter :</p>
+            <h2>7. Contact et Support Technique</h2>
+            <p>Si vous rencontrez des difficultés non adressées dans ce manuel, si vous avez des questions spécifiques sur l'utilisation avancée de l'outil, ou si vous souhaitez faire des suggestions d'amélioration, n'hésitez pas à contacter l'équipe de support désignée au sein de Desmarais & Gagné ou votre responsable direct.</p>
+            <p>Pour les coordonnées générales de l'entreprise :</p>
             <p><strong>Desmarais & Gagné inc.</strong><br>
             📧 Email : <a href="mailto:info@dg-inc.qc.ca">info@dg-inc.qc.ca</a><br>
             📞 Téléphone : (450) 372-9630<br>
             🌐 Site Web : <a href="https://www.dg-inc.qc.ca" target="_blank">www.dg-inc.qc.ca</a>
             </p>
+            <div class="tip">
+                <strong>Pour un support efficace :</strong> Lorsque vous contactez le support, essayez de fournir autant de détails que possible sur le problème rencontré :
+                <ul>
+                    <li>Quelle action essayiez-vous d'effectuer ?</li>
+                    <li>Quel profil expert était sélectionné ?</li>
+                    <li>Quels messages d'erreur (s'il y en a) se sont affichés ?</li>
+                    <li>Si possible, une capture d'écran du problème peut être très utile.</li>
+                </ul>
+            </div>
         </section>
 
         <footer>
             <p>© 2024-2025 Desmarais & Gagné. Tous droits réservés.</p>
-            <p>Manuel d'utilisation développé par l'Assistant IA.</p>
+            <p>Ce manuel d'utilisation a été généré pour vous assister dans l'utilisation optimale de l'Assistant Expert AI.</p>
         </footer>
     </div>
 </body>
